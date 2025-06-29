@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 
 
-name_file = input("Введите имя файла: \n")
+name_file = input("Введите имя файла: \n").strip()
 
 def parser(name_file):
     try:
@@ -40,6 +40,7 @@ def add_db(parser):
     DB_URL = os.getenv("DB_URL")
     conn = psycopg2.connect(DB_URL)
     cursor = conn.cursor()
+
     for user in data:
         user_data = user
         params_data =list_exel[user[0]]
